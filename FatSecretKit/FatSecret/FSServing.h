@@ -20,6 +20,7 @@
 @property (nonatomic, strong, readonly) NSNumber *numberOfUnits;
 @property (nonatomic, strong, readonly) NSNumber *metricServingAmount;
 @property (nonatomic, strong, readonly) NSNumber *servingId;
+@property (nonatomic, strong, readonly) NSString *servingSize;
 
 // Decimals
 @property (nonatomic, strong, readonly) NSNumber *calories;

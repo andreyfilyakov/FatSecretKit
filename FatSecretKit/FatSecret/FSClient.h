@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AFRecipe.h"
 
 typedef void(^FSFoodSearchBlock)(NSArray *foods, NSInteger maxResults, NSInteger totalResults, NSInteger pageNumber);
 
@@ -26,6 +27,13 @@ typedef void(^FSFoodSearchBlock)(NSArray *foods, NSInteger maxResults, NSInteger
 - (void)searchFoods:(NSString *)foodText completion:(FSFoodSearchBlock)completionBlock;
 
 - (void)getFood:(NSInteger)foodId completion:(void (^)(FSFood *food))completionBlock;
+
+- (void)searchRecipes:(NSString *)searchTerm
+           pageNumber:(NSInteger)pageNumber
+           maxResults:(NSInteger)maxResults
+           completion:(void (^)(NSArray *recipes))completionBlock;
+- (void)searchRecipes:(NSString *)searchTerm completion:(void (^)(NSArray *recipes))compltionBlock;
+- (void)getRecipe:(NSInteger)recipeId completion:(void (^)(AFRecipe *recipe))completionBlock;
 
 + (FSClient *)sharedClient;
 

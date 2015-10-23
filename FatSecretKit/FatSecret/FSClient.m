@@ -12,7 +12,7 @@
 #import <SVHTTPRequest/SVHTTPRequest.h>
 #import "FSFood.h"
 
-#define FAT_SECRET_API_ENDPOINT @"http://platform.fatsecret.com/rest/server.api"
+#define FAT_SECRET_API_ENDPOINT @"https://platform.fatsecret.com/rest/server.api"
 
 
 @implementation FSClient
@@ -69,6 +69,51 @@
                      parameters:params
                      completion:^(NSDictionary *data) {
                          completionBlock([FSFood foodWithJSON:[data objectForKey:@"food"]]);
+                     }];
+}
+
+- (void)searchRecipes:(NSString *)searchTerm
+          pageNumber:(NSInteger)pageNumber
+          maxResults:(NSInteger)maxResults
+          completion:(void (^)(NSArray *))completionBlock {
+    NSMutableDictionary *params = [@{
+                                     @"search_expression":searchTerm,
+                                     @"page_number":@(pageNumber),
+                                     @"max_results":@(maxResults)
+                                     }mutableCopy];
+    [self makeRequestWithMethod:@"recipes.search" parameters:params completion:^(NSDictionary *data) {
+        NSMutableArray *recipes = [@[]mutableCopy];
+        id responseRecipes = [data objectForKey:@"recipes"];
+        
+        if ([[responseRecipes objectForKey:@"recipe"] respondsToSelector:@selector(arrayByAddingObject:)]) {
+            for (NSDictionary *recipe in [responseRecipes objectForKey:@"recipe"]) {
+                [recipes addObject:[AFRecipe recipeWithJSON:recipe]];
+            }
+        } else {
+            if ([[responseRecipes objectForKey:@"recipe"] count] == 0) {
+                recipes = [@[]mutableCopy];
+            } else {
+                recipes = [@[[AFRecipe recipeWithJSON:[responseRecipes objectForKey:@"recipe"]]]mutableCopy];
+            }
+        }
+        
+        completionBlock(recipes);
+    }];
+}
+
+- (void)searchRecipes:(NSString *)searchTerm completion:(void (^)(NSArray *))compltionBlock {
+    [self searchRecipes:searchTerm
+             pageNumber:0
+             maxResults:20
+             completion:compltionBlock];
+}
+
+- (void)getRecipe:(NSInteger)recipeId completion:(void (^)(AFRecipe *))completionBlock {
+    NSDictionary *params = @{@"recipe_id":@(recipeId)};
+    [self makeRequestWithMethod:@"recipe.get"
+                     parameters:params
+                     completion:^(NSDictionary *data) {
+                         completionBlock([AFRecipe recipeWithJSON:[data objectForKey:@"recipe"]]);
                      }];
 }
 
