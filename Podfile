@@ -1,3 +1,3 @@
-platform :ios, '5.1'
+platform :ios, ‘7.0’
 
-pod 'SVHTTPRequest'
+pod ‘AFNetworking’, "~> 2.0"
