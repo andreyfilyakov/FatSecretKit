@@ -59,7 +59,7 @@
                 }
                 _recipeImages = array;
             } else {
-                _recipeImages = @[[recipeImages objectForKey:@"recipe_image"]];
+                _recipeImages = [recipeImages objectForKey:@"recipe_image"];
             }
         } else {
             recipeImages = [json objectForKey:@"recipe_image"];
