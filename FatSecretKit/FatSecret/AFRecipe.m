@@ -51,15 +51,11 @@
         id recipeImages = [json objectForKey:@"recipe_images"];
         _recipeImages = @[];
         if (recipeImages) {
+            recipeImages = [recipeImages objectForKey:@"recipe_image"];
             if ([recipeImages respondsToSelector:@selector(arrayByAddingObject:)]) {
-                recipeImages = [recipeImages objectForKey:@"recipe_image"];
-                NSMutableArray *array = [@[]mutableCopy];
-                for (NSDictionary *recipeImage in recipeImages) {
-                    [array addObject:[recipeImage objectForKey:@"recipe_image"]];
-                }
-                _recipeImages = array;
+                _recipeImages = recipeImages;
             } else {
-                _recipeImages = [recipeImages objectForKey:@"recipe_image"];
+                _recipeImages = @[recipeImages];
             }
         } else {
             recipeImages = [json objectForKey:@"recipe_image"];
