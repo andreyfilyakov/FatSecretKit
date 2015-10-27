@@ -61,6 +61,11 @@
             } else {
                 _recipeImages = @[[recipeImages objectForKey:@"recipe_image"]];
             }
+        } else {
+            recipeImages = [json objectForKey:@"recipe_image"];
+            if (recipeImages) {
+                _recipeImages = @[recipeImages];
+            }
         }
         
         id ingredients = [json objectForKey:@"ingredients"];
