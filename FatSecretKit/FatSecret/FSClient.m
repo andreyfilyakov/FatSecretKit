@@ -135,12 +135,12 @@
                                                  nil, 
                                                  @"");
     
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager GET:[FAT_SECRET_API_ENDPOINT stringByAppendingFormat:@"?%@", authHeader]
       parameters:nil
-         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+         success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
              completionBlock(responseObject);
-             }
+     }
          failure:nil];
 }
 
