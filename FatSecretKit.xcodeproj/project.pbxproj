@@ -38,9 +38,9 @@
 		5F06C7CD16670CBC0064C526 /* OAuth+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F06C7BF16670CBC0064C526 /* OAuth+Additions.m */; };
 		5F06C7CE16670CBC0064C526 /* OAuthCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F06C7C116670CBC0064C526 /* OAuthCore.m */; };
 		5F06C7CF16670CBC0064C526 /* OAuthCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F06C7C116670CBC0064C526 /* OAuthCore.m */; };
-		93B12B581BDAC62F006D8EEB /* AFRecipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B12B571BDAC62F006D8EEB /* AFRecipe.m */; settings = {ASSET_TAGS = (); }; };
-		93B12B5B1BDAC8AB006D8EEB /* AFIngredient.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B12B5A1BDAC8AB006D8EEB /* AFIngredient.m */; settings = {ASSET_TAGS = (); }; };
-		93B12B5E1BDACA89006D8EEB /* AFDirection.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B12B5D1BDACA89006D8EEB /* AFDirection.m */; settings = {ASSET_TAGS = (); }; };
+		93B12B581BDAC62F006D8EEB /* AFRecipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B12B571BDAC62F006D8EEB /* AFRecipe.m */; };
+		93B12B5B1BDAC8AB006D8EEB /* AFIngredient.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B12B5A1BDAC8AB006D8EEB /* AFIngredient.m */; };
+		93B12B5E1BDACA89006D8EEB /* AFDirection.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B12B5D1BDACA89006D8EEB /* AFDirection.m */; };
 		98340461D5944C3985E4CE1B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E8A4E36A2EE74229B5D895FA /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -292,7 +292,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = FS;
-				LastTestingUpgradeCheck = 0700;
+				LastTestingUpgradeCheck = 0710;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Mysterious Trousers";
 			};
