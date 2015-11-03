@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.author       	        = { 'Parker Wightman' => 'parkerwightman@gmail.com' }
   s.source       	        = { :git => 'https://github.com/mysterioustrousers/FatSecretKit.git', :tag => '0.0.2' }
   s.source_files 	        = 'FatSecretKit/FatSecret/*.{h,m}'
-  s.dependency              'AFNetworking', '~>3.0'
+  s.dependency              'AFNetworking', '~>3.0-beta'
   s.platform              = :ios, '5.1'
   s.requires_arc 	        = true
 end
